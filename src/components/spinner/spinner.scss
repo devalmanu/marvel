@@ -1,0 +1,29 @@
+.spinner {
+    shape-rendering: auto;
+    display: block;
+    margin: auto;
+    background: none;
+    &-container {
+        display: block;
+        margin: auto;
+        background: none;
+    }
+    &-rect {
+        animation: spinner-animation 1s infinite;
+    }
+}
+
+@keyframes spinner-animation {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@for $i from 0 through 9 {
+    .spinner-rect-#{$i} {
+        animation-delay: -#{0.9 - $i * 0.1}s;
+    }
+}
