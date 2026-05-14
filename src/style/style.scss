@@ -1,11 +1,12 @@
 @import "./variables";
+@import "./mixins/breakpoint";
 @import "./button";
 
 @font-face {
     font-family: "Trebuchet MS";
     font-style: normal;
     font-weight: normal;
-    src: url('../../public/fonts/trebuc.woff') format('woff');
+    src: url("../../public/fonts/trebuc.woff") format("woff");
 }
 
 * {
@@ -15,14 +16,19 @@
 }
 
 body {
+    position: relative;
+    min-width: 320px;
     font-family: "Trebuchet MS", sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
 }
 
 ul,
-li,
-dl {
+li {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -69,12 +75,23 @@ input::-webkit-inner-spin-button {
         right: -174px;
         bottom: -70px;
         z-index: -1;
+        @include breakpoint(tablet) {
+            position: relative;
+            width: 100%;
+            object-fit: contain;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
     }
 }
 
 main {
     margin-top: 50px;
     position: relative;
+    @include breakpoint(mobileonly) {
+                margin-top: 40px;
+            }
 }
 
 .pulse {
