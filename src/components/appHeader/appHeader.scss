@@ -33,13 +33,18 @@
                 justify-content: flex-start;
             }
             @include breakpoint(mobileonly) {
-            font-size: 20px;
-            line-height: 1.4;
-        }
+                font-size: 20px;
+                line-height: 1.4;
+            }
             li {
                 margin: 0 8px;
                 a:hover {
                     color: $main-color;
+                }
+                &:first-child {
+                    @include breakpoint(mobileonly) {
+                        margin-left: 0;
+                    }
                 }
             }
         }
